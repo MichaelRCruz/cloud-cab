@@ -1,16 +1,31 @@
 {
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
   "hosting": {
+    "target": "cloudcab",
     "public": "build",
     "ignore": [
       "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+      "**/.*"
     ],
+    "appAssociation": "AUTO",
     "rewrites": [
+      {
+        "source": "/",
+        "dynamicLinks": true
+      },
       {
         "source": "**",
         "destination": "/index.html"
       }
     ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
   }
 }
